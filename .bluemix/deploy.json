@@ -47,7 +47,6 @@
         },
         "api-key": {
              "description": "API key description",
-             "type": "string"
              "type": "string",
              "validator": {
                  "v-type": "api-key"
