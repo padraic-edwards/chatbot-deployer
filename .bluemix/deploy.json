@@ -16,15 +16,27 @@
     "properties": {
         "prod-region": {
             "description": "The bluemix region",
-            "type": "string"
+             "type": "string",
+             "validator": {
+                 "v-type": "cf-region",
+                 "params": ["api-key"]
+             }
         },
         "prod-organization": {
             "description": "The bluemix org",
-            "type": "string"
+            "type": "string",
+             "validator": {
+                 "v-type": "cf-org",
+                 "params": ["prod-region"]
+             }
         },
         "prod-space": {
             "description": "The bluemix space",
-            "type": "string"
+            "type": "string",
+             "validator": {
+                 "v-type": "cf-space",
+                 "params": ["prod-organization"]
+             }
         },
         "prod-app-name": {
             "description": {
@@ -43,7 +55,7 @@
     "form": [
         {
             "type": "validator",
-            "url": "/devops/setup/bm-helper/helper.html"
+            "url": "/devops/validator/validator-v1.html"
         },
         {
             "type": "text",
@@ -52,6 +64,12 @@
                 "$ref": "#/messages/deploy.appName"
             },
             "key": "prod-app-name"
+        },
+        {
+	        "type": "password",
+	        "readonly": false,
+	        "title": "IBM Cloud API Key",
+	        "key": "api-key"
         },
         {
             "type": "table",
