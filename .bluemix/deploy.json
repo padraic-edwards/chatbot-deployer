@@ -44,13 +44,22 @@
             },
             "type": "string",
             "pattern": "\\S"
-        }
+        },
+        "api-key": {
+             "description": "API key description",
+             "type": "string"
+             "type": "string",
+             "validator": {
+                 "v-type": "api-key"
+             }
+         }        
     },
     "required": [
         "prod-region",
         "prod-organization",
         "prod-space",
-        "prod-app-name"
+        "prod-app-name",
+        "api-key"
     ],
     "form": [
         {
